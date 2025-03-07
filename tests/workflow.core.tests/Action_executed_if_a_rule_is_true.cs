@@ -4,12 +4,12 @@ using Workflow.Core;
 
 namespace Workflow.Core.Tests
 {
-    public class Core_Wf_Engine_Tests
+    public class Action_executed_if_a_rule_is_true
     {
         WorkflowEngine _engine;
         bool _result;
 
-        public Core_Wf_Engine_Tests()
+        public Action_executed_if_a_rule_is_true()
         {
             Given_I_have_a_workflow_engine();
             When_I_add_a_rule_which_evaluates_to_true();
@@ -23,7 +23,7 @@ namespace Workflow.Core.Tests
 
         void When_I_add_a_rule_which_evaluates_to_true()
         {
-            _result = _engine.Execute();
+            _result = _engine.Execute(true);
         }
 
         [Fact]

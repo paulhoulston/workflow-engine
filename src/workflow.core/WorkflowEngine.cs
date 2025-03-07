@@ -8,8 +8,8 @@ public class WorkflowEngine
         
     }
 
-    public bool Execute()
+    public bool Execute(bool ruleResult)
     {
-        return true;
+        return ruleResult;
     }
 }
