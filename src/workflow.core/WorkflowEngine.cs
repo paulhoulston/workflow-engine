@@ -4,12 +4,12 @@ namespace Workflow.Core;
 
 public class WorkflowEngine
 {
-    public WorkflowEngine()
+    readonly WorkflowStep[] _steps;
+
+    public WorkflowEngine(params WorkflowStep[] step)
     {
+        _steps = step;
     }
 
-    public void Execute(WorkflowStep step)
-    {
-        step.Execute();
-    }
+    public void Execute() => _steps.ForEach(s => s.Execute());
 }
