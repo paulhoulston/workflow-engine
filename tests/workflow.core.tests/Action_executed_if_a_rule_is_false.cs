@@ -4,8 +4,13 @@ using Workflow.Core;
 
 namespace Workflow.Core.Tests
 {
-    public class Action_executed_if_a_rule_is_false
+    public class Action_executed_if_a_rule_is_false : Workflow.Core.WorkflowEngine.IAmARule
     {
+        public bool Evaluate()
+        {
+            return false;
+        }
+
         WorkflowEngine _engine;
         bool _result;
 
@@ -23,7 +28,7 @@ namespace Workflow.Core.Tests
 
         void When_I_add_a_rule_which_evaluates_to_false()
         {
-            _result = _engine.Execute(false);
+            _result = _engine.Execute(this);
         }
 
         [Fact]

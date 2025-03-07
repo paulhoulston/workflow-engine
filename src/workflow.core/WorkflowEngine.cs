@@ -3,13 +3,18 @@ namespace Workflow.Core;
 
 public class WorkflowEngine
 {
-    public WorkflowEngine()
+    public interface IAmARule
     {
-        
+        bool Evaluate();
     }
 
-    public bool Execute(bool ruleResult)
+    public WorkflowEngine()
     {
-        return ruleResult;
+
+    }
+
+    public bool Execute(IAmARule rule)
+    {
+        return rule.Evaluate();
     }
 }
