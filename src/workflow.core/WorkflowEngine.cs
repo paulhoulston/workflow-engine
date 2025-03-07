@@ -1,20 +1,16 @@
+using System;
 
 namespace Workflow.Core;
 
 public class WorkflowEngine
 {
-    public interface IAmARule
-    {
-        bool Evaluate();
-    }
-
     public WorkflowEngine()
     {
 
     }
 
-    public bool Execute(IAmARule rule)
+    public void Execute(WorkflowStep step)
     {
-        return rule.Evaluate();
+        step.Execute();
     }
 }

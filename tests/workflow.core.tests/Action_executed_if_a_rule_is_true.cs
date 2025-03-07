@@ -4,13 +4,8 @@ using Workflow.Core;
 
 namespace Workflow.Core.Tests
 {
-    public class Action_executed_if_a_rule_is_true : Workflow.Core.WorkflowEngine.IAmARule
+    public class Action_executed_if_a_rule_is_true
     {
-        public bool Evaluate()
-        {
-            return true;
-        }
-
         WorkflowEngine _engine;
         bool _result;
 
@@ -28,7 +23,7 @@ namespace Workflow.Core.Tests
 
         void When_I_add_a_rule_which_evaluates_to_true()
         {
-            _result = _engine.Execute(this);
+            _engine.Execute(new HardCodedWorkflowStep(true, () => _result = true));
         }
 
         [Fact]
